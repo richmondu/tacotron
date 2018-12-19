@@ -1,16 +1,16 @@
 import io
 import numpy as np
 import tensorflow as tf
-from hparams import hparams
+from tacotron.hparams import hparams
 from librosa import effects
-from models import create_model
-from text import text_to_sequence
-from util import audio
+from tacotron.models import create_model
+from tacotron.text import text_to_sequence
+from tacotron.util import audio
 
 
 class Synthesizer:
   def load(self, checkpoint_path, model_name='tacotron'):
-    print('Constructing model: %s' % model_name)
+    #print('Constructing model: %s' % model_name)
     inputs = tf.placeholder(tf.int32, [1, None], 'inputs')
     input_lengths = tf.placeholder(tf.int32, [1], 'input_lengths')
     with tf.variable_scope('model') as scope:
@@ -18,7 +18,7 @@ class Synthesizer:
       self.model.initialize(inputs, input_lengths)
       self.wav_output = audio.inv_spectrogram_tensorflow(self.model.linear_outputs[0])
 
-    print('Loading checkpoint: %s' % checkpoint_path)
+    #print('Loading checkpoint: %s' % checkpoint_path)
     self.session = tf.Session()
     self.session.run(tf.global_variables_initializer())
     saver = tf.train.Saver()

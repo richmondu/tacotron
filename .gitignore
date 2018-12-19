@@ -1,5 +1,10 @@
-__pycache__/
-.cache/
-*.pyc
-.DS_Store
-run*.sh
+tacotron/__pycache__/
+tacotron/models/__pycache__/
+tacotron/text/__pycache__/
+tacotron/util/__pycache__/
+tacotron/.cache/
+tacotron/*.pyc
+tacotron/.DS_Store
+tacotron/run*.sh
+tacotron/tmp
+*.wav

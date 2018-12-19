@@ -1,0 +1,1 @@
+python demo.py --checkpoint tacotron/tmp/tacotron-20180906/model.ckpt --text "Hello Richmond" --output Richmond.wav
